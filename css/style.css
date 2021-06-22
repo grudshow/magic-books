@@ -916,6 +916,7 @@ body.ie ._ibg img {
   margin: 0px 0px 50px 0px;
   font-family: "ProximaNova";
   font-size: 40px;
+  font-weight: 800;
   line-height: 49px;
   text-align: center;
   color: #171717;
@@ -947,7 +948,7 @@ body.ie ._ibg img {
   font-family: "ProximaNova";
   font-weight: 600;
   font-size: 25px;
-  line-height: 120%;
+  line-height: 30px;
   color: #a8a8a8;
 }
 
@@ -1073,16 +1074,26 @@ body.ie ._ibg img {
   background: #ffffff;
   width: 100%;
   z-index: 5;
-  -webkit-transition: all 0.3s ease 0s;
-  -o-transition: all 0.3s ease 0s;
-  transition: all 0.3s ease 0s;
+  -webkit-transition: all 0.5s ease 0s;
+  -o-transition: all 0.5s ease 0s;
+  transition: all 0.5s ease 0s;
+  position: relative;
+  overflow: hidden;
 }
 
 .header._active {
-  -webkit-transition: all 0.3s ease 0s;
-  -o-transition: all 0.3s ease 0s;
-  transition: all 0.3s ease 0s;
   position: fixed;
+  -webkit-animation-name: show_header;
+          animation-name: show_header;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+}
+
+.header._top {
+  top: 0;
+  -webkit-transition: all 0.5s ease 0s;
+  -o-transition: all 0.5s ease 0s;
+  transition: all 0.5s ease 0s;
 }
 
 .header__content {
@@ -1110,69 +1121,15 @@ body.ie ._ibg img {
   font-family: "ProximaNova";
   font-weight: 600;
   font-size: 25px;
-  line-height: 120%;
+  line-height: 30px;
   color: #fff;
-  padding: 10px 15px;
+  padding: 18px 25px;
   background-color: #3456f3;
   -webkit-transition: all 0.3s ease 0s;
   -o-transition: all 0.3s ease 0s;
   transition: all 0.3s ease 0s;
   border-radius: 31px;
   transition: all 0.3s ease 0s;
-}
-
-.header__button._scroll {
-  -webkit-animation: pulse 2s infinite;
-          animation: pulse 2s infinite;
-  -webkit-transition: all 0.3s ease 0s;
-  -o-transition: all 0.3s ease 0s;
-  transition: all 0.3s ease 0s;
-  position: fixed;
-  right: 50px;
-  padding: 11px;
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-transform: rotate(-20deg);
-      -ms-transform: rotate(-20deg);
-          transform: rotate(-20deg);
-}
-
-.header__button._scroll:after,
-.header__button._scroll:before {
-  content: "";
-  border: 1px solid #3456f3;
-  border-radius: 50%;
-  position: absolute;
-}
-
-.header__button._scroll:after {
-  width: 40px;
-  padding: 40px;
-  height: 40px;
-}
-
-.header__button._scroll:before {
-  width: 40px;
-  padding: 30px;
-  height: 30px;
-}
-
-.header__button._scroll span:first-child {
-  display: none;
-}
-
-.header__button._scroll span:last-child {
-  display: block;
 }
 
 .header__button._disabled {
@@ -1186,6 +1143,30 @@ body.ie ._ibg img {
 .header__button._disabled:after,
 .header__button._disabled:before {
   display: none;
+}
+
+@-webkit-keyframes show_header {
+  0% {
+    opacity: 0;
+    top: -100%;
+  }
+
+  100% {
+    opacity: 1;
+    top: 0;
+  }
+}
+
+@keyframes show_header {
+  0% {
+    opacity: 0;
+    top: -100%;
+  }
+
+  100% {
+    opacity: 1;
+    top: 0;
+  }
 }
 
 @-webkit-keyframes pulse {
@@ -1302,6 +1283,73 @@ body.ie ._ibg img {
 
 .footer__link:hover {
   color: #3456f3;
+}
+
+.question {
+  font-family: "ProximaNova";
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #3456f3;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  color: #fff;
+  -webkit-animation: pulse 2s infinite;
+          animation: pulse 2s infinite;
+  -webkit-transition: all 0.5s ease 0s;
+  -o-transition: all 0.5s ease 0s;
+  transition: all 0.5s ease 0s;
+  position: fixed;
+  top: 50px;
+  right: -100%;
+  border-radius: 50%;
+  -webkit-transform: rotate(-20deg);
+      -ms-transform: rotate(-20deg);
+          transform: rotate(-20deg);
+}
+
+.question._active {
+  right: 50px;
+}
+
+.question:after,
+.question:before {
+  content: "";
+  border: 1px solid #3456f3;
+  border-radius: 50%;
+  position: absolute;
+}
+
+.question:after {
+  width: 40px;
+  padding: 40px;
+  height: 40px;
+}
+
+.question:before {
+  width: 40px;
+  padding: 30px;
+  height: 30px;
+}
+
+.question._disabled {
+  pointer-events: none;
+  background-color: #e5e5e5;
+  -webkit-transition: all 0.5s ease 0s;
+  -o-transition: all 0.5s ease 0s;
+  transition: all 0.5s ease 0s;
+}
+
+.question._disabled:after,
+.question._disabled:before {
+  display: none;
 }
 
 .page {
@@ -1748,10 +1796,6 @@ body.ie ._ibg img {
 }
 
 @media (max-width: 1450px) {
-  .form-popup__input {
-    font-size: calc(16px + 9 * ((100vw - 320px) / 1130));
-  }
-
   .form-popup__btn {
     font-size: calc(16px + 9 * ((100vw - 320px) / 1130));
   }
@@ -1761,10 +1805,6 @@ body.ie ._ibg img {
   }
 
   .test__subtitle {
-    font-size: calc(16px + 9 * ((100vw - 320px) / 1130));
-  }
-
-  .form-subscribe__button {
     font-size: calc(16px + 9 * ((100vw - 320px) / 1130));
   }
 }
@@ -1783,7 +1823,8 @@ body.ie ._ibg img {
   }
 
   .popup__body {
-    padding: 40px 0px;
+    padding: 40px 120px;
+    max-width: 940px;
   }
 
   .popup__close {
@@ -1965,6 +2006,11 @@ body.ie ._ibg img {
   }
 
   .form-subscribe__button {
+    font-size: 18px;
+    line-height: 22px;
+  }
+
+  .form-subscribe__button {
     height: 50px;
     padding: 0px 40px;
   }
@@ -2022,7 +2068,6 @@ body.ie ._ibg img {
   .popup__title {
     font-size: 25px;
     line-height: 30px;
-    font-weight: 800;
     max-width: 270px;
     margin: 0px 0px 30px 0px;
   }
@@ -2038,7 +2083,7 @@ body.ie ._ibg img {
   .form-popup__area {
     font-size: 16px;
     line-height: 19px;
-    height: 186px;
+    max-height: 186px;
     padding: 30px 30px;
     margin: 0px 0px 15px 0px;
   }
@@ -2058,10 +2103,6 @@ body.ie ._ibg img {
 
   .header__logo img {
     width: 50%;
-  }
-
-  .header__button._scroll {
-    top: 40px;
   }
 
   .header__button span:first-child {
@@ -2086,6 +2127,14 @@ body.ie ._ibg img {
 
   .footer__content {
     padding: 126px 0px 54px 0px;
+  }
+
+  .question {
+    top: 40px;
+  }
+
+  .question._active {
+    right: 40px;
   }
 
   ._title {
@@ -2367,6 +2416,10 @@ body.ie ._ibg img {
   }
 
   .header__button:hover {
+    background-color: #1335d0;
+  }
+
+  .question:hover {
     background-color: #1335d0;
   }
 

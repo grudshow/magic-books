@@ -263,6 +263,7 @@ if (spollers.length > 0) {
 //=================
 
 const buttonPopup = document.querySelector(".header__button");
+const questionButton = document.querySelector('.question');
 //=================
 //Popups
 let popup_link = document.querySelectorAll('._popup-link');
@@ -302,6 +303,7 @@ function popup_open(item, video = '') {
 		}
 		curent_popup.classList.add('_active');
 		buttonPopup.classList.add('_disabled');
+		questionButton.classList.add('_disabled');
 		history.pushState('', '', '#' + item);
 	}
 }
@@ -316,6 +318,7 @@ function popup_close(item, bodyUnlock = true) {
 				}
 				popup.classList.remove('_active');
 				buttonPopup.classList.remove('_disabled');
+				questionButton.classList.remove('_disabled');
 			}
 		} else {
 			let video = item.querySelector('.popup__video');
@@ -324,6 +327,7 @@ function popup_close(item, bodyUnlock = true) {
 			}
 			item.classList.remove('_active');
 			buttonPopup.classList.remove('_disabled');
+			questionButton.classList.remove('_disabled');
 		}
 		if (!document.querySelector('.menu__body._active') && bodyUnlock) {
 			body_lock_remove(500);
@@ -933,29 +937,35 @@ let scrollDirection = 0;
 let header = document.querySelector('header.header');
 let mainBlock = document.querySelector('.main');
 let headerButton = document.querySelector('.header__button');
+let question = document.querySelector('.question');
 let lastScrollTop = 0;
 const headerHeight = header.offsetHeight;
 const firstHeight = mainBlock.offsetHeight;
 window.addEventListener('scroll', () => {
-	let scrollDistance = window.scrollY;
-	if (scrollDistance > lastScrollTop) {
-		header.classList.remove('_active');
-		mainBlock.style.marginTop = null;
-		headerButton.classList.add('_scroll');
-	} else {
-		headerButton.classList.remove('_scroll');
-		header.classList.add('_active');
-		// mainBlock.style.marginTop = `${headerHeight}px`;
+	if (pageYOffset > 300) {
+		let scrollDistance = window.scrollY;
+		if (scrollDistance > lastScrollTop) {
+			header.classList.remove('_active');
+			mainBlock.style.marginTop = null;
+			// headerButton.classList.add('_scroll');
+			question.classList.add("_active");
+			header.classList.remove("_top");
+		} else {
+			// headerButton.classList.remove('_scroll');
+			question.classList.remove("_active");
+
+			header.classList.add('_active');
+			// mainBlock.style.marginTop = `${headerHeight}px`;
+		}
+		if (scrollDistance === 0) {
+			header.classList.remove('_active');
+			// mainBlock.style.marginTop == null;
+			header.classList.add("_top");
+		}
+		lastScrollTop = scrollDistance;
 	}
-	if (scrollDistance === 0) {
-		header.classList.remove('_active');
-		mainBlock.style.marginTop == null;
-	}
 
-	lastScrollTop = scrollDistance;
-
-})
-
+});
 //ScrollOnScroll
 // window.addEventListener('scroll', scroll_scroll);
 // function scroll_scroll() {
