@@ -1094,6 +1094,10 @@ body.ie ._ibg img {
   -webkit-transition: all 0.5s ease 0s;
   -o-transition: all 0.5s ease 0s;
   transition: all 0.5s ease 0s;
+  -webkit-animation-name: show_header;
+          animation-name: show_header;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
 }
 
 .header__content {
@@ -1303,9 +1307,9 @@ body.ie ._ibg img {
   color: #fff;
   -webkit-animation: pulse 2s infinite;
           animation: pulse 2s infinite;
-  -webkit-transition: all 0.5s ease 0s;
-  -o-transition: all 0.5s ease 0s;
-  transition: all 0.5s ease 0s;
+  -webkit-transition: all 1s ease 0s;
+  -o-transition: all 1s ease 0s;
+  transition: all 1s ease 0s;
   position: fixed;
   top: 50px;
   right: -100%;
