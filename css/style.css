@@ -127,6 +127,10 @@ body._lock {
 .wrapper {
   width: 100%;
   min-height: 100%;
+  height: auto;
+  -webkit-transition: all 0.3s ease 0s;
+  -o-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
   overflow: hidden;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1377,6 +1381,10 @@ body.ie ._ibg img {
   margin: 0px 0px 100px 0px;
 }
 
+.main._active {
+  margin-top: 140px;
+}
+
 .main__background {
   background: url("../img/background-01.jpg") center/cover no-repeat;
 }
@@ -1798,6 +1806,10 @@ body.ie ._ibg img {
     font-size: 18px;
     padding: 10px 23px;
   }
+
+  .main._active {
+    margin-top: 112px;
+  }
 }
 
 @media (max-width: 1450px) {
@@ -1847,11 +1859,13 @@ body.ie ._ibg img {
   .form-popup__input {
     font-size: 18px;
     line-height: 22px;
+    height: 50px;
   }
 
   .form-popup__area {
     font-size: 18px;
     line-height: 22px;
+    height: 187px;
   }
 
   .tippy-box[data-theme~="myTooltip"] {
@@ -2152,6 +2166,10 @@ body.ie ._ibg img {
     margin: 0px 0px 40px 0px;
   }
 
+  .main._active {
+    margin-top: 70px;
+  }
+
   .main__content {
     padding: 150px 0px 239px 0px;
   }
@@ -2324,10 +2342,6 @@ body.ie ._ibg img {
     font-size: 20px;
     line-height: 24px;
     max-width: 217px;
-  }
-
-  .form-popup__area {
-    font-weight: 600;
   }
 
   .form-popup__btn {

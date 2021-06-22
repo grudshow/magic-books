@@ -924,6 +924,7 @@ if (quantityButtons.length > 0) {
 		});
 	}
 }
+
 let scr_body = document.querySelector('body');
 let scr_blocks = document.querySelectorAll('._scr-sector');
 let scr_items = document.querySelectorAll('._scr-item');
@@ -946,6 +947,7 @@ window.addEventListener('scroll', () => {
 	let scrollDistance = window.scrollY;
 	if (scrollDistance > lastScrollTop) {
 		header.classList.remove('_active');
+		mainBlock.classList.remove("_active");
 		mainBlock.style.marginTop = null;
 		// headerButton.classList.add('_scroll');
 		question.classList.add("_active");
@@ -955,12 +957,14 @@ window.addEventListener('scroll', () => {
 		question.classList.remove("_active");
 		header.classList.add('_active');
 		// mainBlock.style.marginTop = `${headerHeight}px`;
+		mainBlock.classList.add("_active");
 	}
 	if (scrollDistance === 0) {
-		// sheader.classList.remove('_active');
-		mainBlock.style.marginTop == null;
+		header.classList.remove('_active');
+		mainBlock.classList.remove("_active");
+		// mainBlock.style.marginTop == null;
 		// header.style.position = "relative";
-		setTimeout(header.classList.add("_top"), 1000);
+		// setTimeout(header.classList.add("_top"), 1000);
 	}
 	lastScrollTop = scrollDistance;
 	// }
