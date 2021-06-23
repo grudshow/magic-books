@@ -1393,6 +1393,14 @@ buttons.forEach((item) => {
 
 const subscribeButton = document.querySelector('button.form-subscribe__button');
 subscribeButton.addEventListener('click', function (e) {
+	if (window.innerWidth <= 479) {
+		if (!document.querySelector('.form-subscribe__input').classList.contains('_active')) {
+			document.querySelector('.form-subscribe__input').classList.add('_active');
+		}
+		else {
+			document.querySelector('.form-subscribe__input').classList.remove('_active');
+		}
+	}
 	if (!subscribeButton.classList.contains('_active')) {
 		subscribeButton.innerHTML = "Сообщение отправлено на почту";
 		subscribeButton.classList.add('_active');
@@ -1443,6 +1451,7 @@ tests.forEach((test) => {
 
 	})
 })
+
 
 
 //BildSlider
