@@ -1860,12 +1860,19 @@ body.ie ._ibg img {
     font-size: 18px;
     line-height: 22px;
     height: 50px;
+    padding: 0px 50px;
   }
 
   .form-popup__area {
     font-size: 18px;
     line-height: 22px;
     height: 187px;
+  }
+
+  .form-popup__btn {
+    height: 50px;
+    font-size: 18px;
+    line-height: 22px;
   }
 
   .tippy-box[data-theme~="myTooltip"] {
@@ -2108,10 +2115,6 @@ body.ie ._ibg img {
     margin: 0px 0px 15px 0px;
   }
 
-  .form-popup__btn {
-    height: 50px;
-  }
-
   .tippy-box[data-theme~="myTooltip"] {
     font-size: 16px;
     line-height: 24px;
@@ -2346,8 +2349,6 @@ body.ie ._ibg img {
 
   .form-popup__btn {
     font-weight: 600;
-    font-size: 18px;
-    line-height: 22px;
   }
 
   .footer__content {
