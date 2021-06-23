@@ -962,6 +962,7 @@ window.addEventListener('scroll', () => {
 	if (scrollDistance === 0) {
 		header.classList.remove('_active');
 		mainBlock.classList.remove("_active");
+		question.classList.remove("_active");
 		// mainBlock.style.marginTop == null;
 		// header.style.position = "relative";
 		// setTimeout(header.classList.add("_top"), 1000);
