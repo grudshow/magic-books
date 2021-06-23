@@ -943,7 +943,7 @@ let lastScrollTop = 0;
 const headerHeight = header.offsetHeight;
 const firstHeight = mainBlock.offsetHeight;
 window.addEventListener('scroll', () => {
-	if (pageYOffset > 150) {
+	if (pageYOffset > 600) {
 		let scrollDistance = window.scrollY;
 		if (scrollDistance > lastScrollTop) {
 			header.classList.remove('_active');
